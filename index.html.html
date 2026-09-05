@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Roopashree Madam ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Tiro+Kannada:ital@0;1&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      font-family: 'Outfit', sans-serif;
+      position: relative;
+      background: radial-gradient(circle at 50% 20%, #fffbf6 0%, #fdf2e9 45%, #f6e2d3 100%);
+    }
+
+    /* Ambient Soft Bokeh Orbs */
+    .bokeh {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.45;
+      animation: floatBokeh 12s infinite alternate ease-in-out;
+    }
+    .bokeh-1 { top: 10%; left: -10%; width: 220px; height: 220px; background: #ffd3b6; }
+    .bokeh-2 { top: 40%; right: -15%; width: 260px; height: 260px; background: #ffaaa5; animation-delay: -4s; }
+    .bokeh-3 { bottom: 15%; left: 10%; width: 180px; height: 180px; background: #ffeaa7; animation-delay: -7s; }
+
+    @keyframes floatBokeh {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-35px) scale(1.15); }
+    }
+
+    /* Confetti Canvas */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Main Stage */
+    .stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 420px;
+      padding-bottom: 130px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Kinetic Drop Keyframe */
+    @keyframes dropIn {
+      0% {
+        transform: translateY(-240px) scale(0.92);
+        opacity: 0;
+        filter: blur(16px);
+      }
+      75% {
+        transform: translateY(10px) scale(1.015);
+        opacity: 0.95;
+        filter: blur(1px);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    .drop-item {
+      opacity: 0;
+      animation-name: dropIn;
+      animation-duration: 1.15s;
+      animation-timing-function: cubic-bezier(0.25, 1.35, 0.5, 1);
+      animation-fill-mode: forwards;
+    }
+
+    /* 1. Hanging Fairy Light Garland (Drops at 2s) */
+    .top-light-garland {
+      animation-delay: 2s;
+      width: 100vw;
+      position: relative;
+      padding-top: 4px;
+      height: 52px;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      z-index: 25;
+    }
+
+    .top-garland-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bulb-node {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bulb {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      animation: pulseGlow 1.4s ease-in-out infinite alternate;
+    }
+
+    .t-b1 { transform: translateY(7px); }
+    .t-b2 { transform: translateY(16px); }
+    .t-b3 { transform: translateY(22px); }
+    .t-b4 { transform: translateY(22px); }
+    .t-b5 { transform: translateY(16px); }
+    .t-b6 { transform: translateY(7px); }
+
+    .bulb-1 { background: #ff7675; box-shadow: 0 0 12px #ff7675; animation-delay: 0.1s; }
+    .bulb-2 { background: #ffd32a; box-shadow: 0 0 12px #ffd32a; animation-delay: 0.3s; }
+    .bulb-3 { background: #2ed573; box-shadow: 0 0 12px #2ed573; animation-delay: 0.5s; }
+    .bulb-4 { background: #70a1ff; box-shadow: 0 0 12px #70a1ff; animation-delay: 0.2s; }
+    .bulb-5 { background: #a55eea; box-shadow: 0 0 12px #a55eea; animation-delay: 0.4s; }
+    .bulb-6 { background: #ff6b81; box-shadow: 0 0 12px #ff6b81; animation-delay: 0.6s; }
+
+    @keyframes pulseGlow {
+      from { transform: scale(0.85); opacity: 0.7; }
+      to { transform: scale(1.18); opacity: 1; filter: brightness(1.35); }
+    }
+
+    /* 2. Hanging Bunting Banner (Drops at 4s) */
+    .bunting-wrapper {
+      animation-delay: 4s;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+      position: relative;
+      z-index: 15;
+    }
+
+    .bunting-row-container {
+      position: relative;
+      width: 330px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .rope-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 38px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bunting-row {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .flag {
+      background: linear-gradient(180deg, #242c38 0%, #151a22 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 5px;
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      color: #f7b731;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.28);
+      border-top: 2px solid #3d4a5d;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    }
+
+    .row-happy .flag { width: 31px; height: 43px; font-size: 1.05rem; }
+    .h-flag1 { transform: translateY(0px) rotate(12deg); }
+    .h-flag2 { transform: translateY(8px) rotate(6deg); }
+    .h-flag3 { transform: translateY(12px) rotate(0deg); }
+    .h-flag4 { transform: translateY(8px) rotate(-6deg); }
+    .h-flag5 { transform: translateY(0px) rotate(-12deg); }
+
+    .row-birthday .flag { width: 26px; height: 37px; font-size: 0.9rem; padding-top: 4px; }
+    .b-flag1 { transform: translateY(0px) rotate(16deg); }
+    .b-flag2 { transform: translateY(7px) rotate(11deg); }
+    .b-flag3 { transform: translateY(13px) rotate(6deg); }
+    .b-flag4 { transform: translateY(16px) rotate(2deg); }
+    .b-flag5 { transform: translateY(16px) rotate(-2deg); }
+    .b-flag6 { transform: translateY(13px) rotate(-6deg); }
+    .b-flag7 { transform: translateY(7px) rotate(-11deg); }
+    .b-flag8 { transform: translateY(0px) rotate(-16deg); }
+
+    /* Edison Hanging Lights Backdrop (Drops at 4.5s) */
+    .hanging-bulbs-garland {
+      animation-delay: 4.5s;
+      width: 100vw;
+      position: relative;
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      z-index: 8;
+    }
+
+    .wire-curved-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 25px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hanging-bulb-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hanging-wire {
+      width: 1.5px;
+      background: #4a4a4a;
+    }
+
+    .hanging-socket {
+      width: 9px;
+      height: 6px;
+      background: #2d3436;
+      border-radius: 1px 1px 0 0;
+    }
+
+    .hanging-lamp {
+      width: 16px;
+      height: 22px;
+      background: radial-gradient(circle at 40% 30%, #fffced 0%, #ffd05b 55%, #f39c12 100%);
+      border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+      box-shadow: 0 0 14px #ffd32a, 0 0 24px rgba(255, 165, 2, 0.7);
+      animation: warmGlow 2s ease-in-out infinite alternate;
+    }
+
+    .node-1 .hanging-wire { height: 16px; }
+    .node-2 .hanging-wire { height: 34px; }
+    .node-3 .hanging-wire { height: 20px; }
+    .node-4 .hanging-wire { height: 40px; }
+    .node-5 .hanging-wire { height: 22px; }
+    .node-6 .hanging-wire { height: 36px; }
+    .node-7 .hanging-wire { height: 16px; }
+
+    @keyframes warmGlow {
+      0% { filter: brightness(0.9); opacity: 0.82; }
+      100% { filter: brightness(1.3); opacity: 1; box-shadow: 0 0 20px #ffd32a, 0 0 34px rgba(255, 177, 66, 0.85); }
+    }
+
+    /* 3. Silk Hanging Banner with Kannada Calligraphy (5s) */
+    .tapestry-banner-wrapper {
+      animation-delay: 5s;
+      width: 100vw;
+      margin-top: 18px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      z-index: 16;
+    }
+
+    .fabric-knot-side {
+      position: relative;
+      width: 32px;
+      height: 54px;
+      flex-shrink: 0;
+      z-index: 4;
+    }
+
+    .knot-ball {
+      width: 16px;
+      height: 16px;
+      background: #f190a6;
+      border-radius: 50%;
+      box-shadow: inset -2px -2px 4px rgba(0,0,0,0.15), 0 3px 6px rgba(235, 125, 145, 0.35);
+      position: absolute;
+      top: 4px;
+    }
+
+    .knot-left .knot-ball { right: 2px; }
+    .knot-right .knot-ball { left: 2px; }
+
+    .knot-tail {
+      position: absolute;
+      width: 13px;
+      height: 32px;
+      background: #e98299;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0 85%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .knot-left .knot-tail { top: 14px; right: 4px; transform: rotate(18deg); }
+    .knot-right .knot-tail { top: 14px; left: 4px; transform: rotate(-18deg) scaleX(-1); }
+
+    .tapestry-cloth {
+      width: 84vw;
+      max-width: 350px;
+      height: 72px;
+      background: linear-gradient(180deg, #fcd5ce 0%, #f9c0b5 100%);
+      box-shadow: 0 10px 24px rgba(235, 125, 145, 0.28), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+      border-radius: 4px 4px 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 6px;
+      transform: translateY(4px);
+      border-bottom: 2px solid #ebb2a5;
+    }
+
+    .tapestry-cloth::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: -5%;
+      width: 110%;
+      height: 22px;
+      background: #fbf3ed;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+    }
+
+    .tapestry-text {
+      position: relative;
+      z-index: 2;
+      color: #8c2e44;
+      font-family: 'Tiro Kannada', serif;
+      font-size: 1.45rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+
+    /* Side Balloon Clusters */
+    .balloon-cluster {
+      position: absolute;
+      top: 75px;
+      width: 60px;
+      height: 100px;
+      opacity: 0;
+      animation-duration: 1.2s;
+      animation-timing-function: cubic-bezier(0.2, 0.9, 0.3, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 4s;
+      z-index: 12;
+    }
+
+    .cluster-left { left: 8px; animation-name: enterClusterLeft; }
+    .cluster-right { right: 8px; animation-name: enterClusterRight; }
+
+    @keyframes enterClusterLeft {
+      0% { transform: translateX(-140px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes enterClusterRight {
+      0% { transform: translateX(140px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    .balloon {
+      position: absolute;
+      width: 38px;
+      height: 48px;
+      border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+      box-shadow: inset -4px -4px 8px rgba(0,0,0,0.1), 0 6px 14px rgba(0,0,0,0.08);
+      animation: floatIdle 3.5s ease-in-out infinite alternate;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-bottom: 5px solid currentColor;
+    }
+
+    .balloon::before {
+      content: "";
+      position: absolute;
+      top: 48px;
+      left: 50%;
+      width: 1px;
+      height: 45px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes floatIdle {
+      0% { transform: translateY(0) rotate(-4deg); }
+      100% { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    .cluster-left .b-1 { background: #ff7675; color: #ff7675; left: 0; top: 0; }
+    .cluster-left .b-2 { background: #ffeaa7; color: #ffeaa7; left: 20px; top: 18px; animation-delay: -1s; }
+    .cluster-left .b-3 { background: #74b9ff; color: #74b9ff; left: 6px; top: 38px; animation-delay: -2s; }
+
+    .cluster-right .b-1 { background: #55efc4; color: #55efc4; right: 0; top: 0; }
+    .cluster-right .b-2 { background: #fd79a8; color: #fd79a8; right: 20px; top: 18px; animation-delay: -1.2s; }
+    .cluster-right .b-3 { background: #a29bfe; color: #a29bfe; right: 6px; top: 38px; animation-delay: -2.2s; }
+
+    /* 4. Bottom Table Dock (Rises at 6s) */
+    .table-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 30;
+      transform: translateY(100%);
+      animation: riseFromBottom 1.15s cubic-bezier(0.25, 1.3, 0.5, 1) 6s forwards;
+    }
+
+    @keyframes riseFromBottom {
+      0% { transform: translateY(100%); filter: blur(10px); }
+      100% { transform: translateY(0); filter: blur(0); }
+    }
+
+    .tabletop-arrangement {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 410px;
+      margin-bottom: -2px;
+      padding: 0 8px;
+    }
+
+    .table-gift-pair {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    /* Centered Tiramisu Cake (Drops at 6s) */
+    .cake-container {
+      animation-delay: 6s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 35;
+      margin: 0 4px;
+    }
+
+    .candle-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: -1px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .candle {
+      width: 6px;
+      height: 20px;
+      background: repeating-linear-gradient(45deg, #fff, #fff 3px, #e74c3c 3px, #e74c3c 6px);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .flame {
+      width: 9px;
+      height: 14px;
+      background: radial-gradient(circle at 50% 60%, #fff 15%, #f1c40f 65%, #e67e22 100%);
+      border-radius: 50% 50% 20% 20%;
+      position: absolute;
+      top: -14px;
+      left: -1.5px;
+      box-shadow: 0 0 10px #f39c12;
+      animation: flicker 0.6s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-3deg); }
+      100% { transform: scale(1.18) rotate(3deg); filter: brightness(1.25); }
+    }
+
+    .cake-tier-1 {
+      width: 78px;
+      height: 26px;
+      background: #fff8f0;
+      border-radius: 6px 6px 0 0;
+      position: relative;
+      border-top: 4px solid #5c3a21;
+    }
+
+    .cake-tier-1::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: #d4a373;
+    }
+
+    .cake-tier-2 {
+      width: 114px;
+      height: 38px;
+      background: #faedcd;
+      border-radius: 6px;
+      position: relative;
+      border-top: 3px solid #5c3a21;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    }
+
+    .cake-tier-2::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: #d4a373;
+    }
+
+    /* Gift Boxes with Metallic Bows */
+    .gift-box {
+      position: relative;
+      border-radius: 3px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+      animation-delay: 6s;
+      flex-shrink: 0;
+    }
+
+    .gift-ribbon-v {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 100%;
+      background: #fff;
+    }
+
+    .gift-ribbon-h {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 5px;
+      background: #fff;
+    }
+
+    .gift-left-tall { width: 32px; height: 44px; background: #74b9ff; }
+    .gift-left-square { width: 28px; height: 28px; background: #a29bfe; }
+    .gift-right-square { width: 34px; height: 36px; background: #ff7675; }
+    .gift-right-tall { width: 28px; height: 46px; background: #55efc4; }
+
+    /* Polished Oak Table */
+    .table-surface {
+      width: 100%;
+      height: 20px;
+      background: linear-gradient(180deg, #b87c4c 0%, #965b2f 100%);
+      box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.12);
+      border-top: 2px solid #d49866;
+      border-bottom: 2px solid #6e3e1b;
+    }
+
+    .table-cloth-trim {
+      width: 100%;
+      height: 10px;
+      background: repeating-linear-gradient(
+        90deg,
+        #ffffff 0px,
+        #ffffff 12px,
+        #ff7675 12px,
+        #ff7675 24px
+      );
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .table-legs-viewport {
+      width: 88%;
+      height: 28px;
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .leg-top {
+      width: 24px;
+      height: 100%;
+      background: linear-gradient(90deg, #965b2f 0%, #6e3e1b 100%);
+      border-radius: 0 0 4px 4px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bokeh bokeh-1"></div>
+  <div class="bokeh bokeh-2"></div>
+  <div class="bokeh bokeh-3"></div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="balloon-cluster cluster-left">
+    <div class="balloon b-1"></div>
+    <div class="balloon b-2"></div>
+    <div class="balloon b-3"></div>
+  </div>
+
+  <div class="balloon-cluster cluster-right">
+    <div class="balloon b-1"></div>
+    <div class="balloon b-2"></div>
+    <div class="balloon b-3"></div>
+  </div>
+
+  <div class="stage">
+    <div class="drop-item top-light-garland">
+      <svg class="top-garland-svg" preserveAspectRatio="none" viewBox="0 0 100 25">
+        <path d="M 0 4 Q 50 24 100 4" fill="none" stroke="#2d3436" stroke-width="0.8" stroke-dasharray="2,1" />
+      </svg>
+      <div class="bulb-node t-b1"><div class="bulb bulb-1"></div></div>
+      <div class="bulb-node t-b2"><div class="bulb bulb-2"></div></div>
+      <div class="bulb-node t-b3"><div class="bulb bulb-3"></div></div>
+      <div class="bulb-node t-b4"><div class="bulb bulb-4"></div></div>
+      <div class="bulb-node t-b5"><div class="bulb bulb-5"></div></div>
+      <div class="bulb-node t-b6"><div class="bulb bulb-6"></div></div>
+    </div>
+
+    <div class="drop-item bunting-wrapper">
+      <div class="bunting-row-container">
+        <svg class="rope-svg" viewBox="0 0 320 38">
+          <path d="M 60 4 Q 160 30 260 4" fill="none" stroke="#2d3436" stroke-width="1.8" stroke-dasharray="3,2" />
+        </svg>
+        <div class="bunting-row row-happy">
+          <div class="flag h-flag1">H</div>
+          <div class="flag h-flag2">A</div>
+          <div class="flag h-flag3">P</div>
+          <div class="flag h-flag4">P</div>
+          <div class="flag h-flag5">Y</div>
+        </div>
+      </div>
+
+      <div class="bunting-row-container">
+        <svg class="rope-svg" viewBox="0 0 320 38">
+          <path d="M 25 4 Q 160 34 295 4" fill="none" stroke="#2d3436" stroke-width="1.8" stroke-dasharray="3,2" />
+        </svg>
+        <div class="bunting-row row-birthday">
+          <div class="flag b-flag1">B</div>
+          <div class="flag b-flag2">I</div>
+          <div class="flag b-flag3">R</div>
+          <div class="flag b-flag4">T</div>
+          <div class="flag b-flag5">H</div>
+          <div class="flag b-flag6">D</div>
+          <div class="flag b-flag7">A</div>
+          <div class="flag b-flag8">Y</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="drop-item hanging-bulbs-garland">
+      <svg class="wire-curved-svg" preserveAspectRatio="none" viewBox="0 0 100 20">
+        <path d="M 0 5 Q 50 18 100 5" fill="none" stroke="#4b5563" stroke-width="0.8" />
+      </svg>
+      <div class="hanging-bulb-node node-1">
+        <div class="hanging-wire"></div><div class="hanging-socket"></div><div class="hanging-lamp"></div>
+      </div>
+      <div class="hanging-bulb-node node-2">
+        <div class="hanging-wire"></div><div class="hanging-socket"></div><div class="hanging-lamp"></div>
+      </div>
+      <div class="hanging-bulb-node node-3">
+        <div class="hanging-wire"></div><div class="hanging-socket"></div><div class="hanging-lamp"></div>
+      </div>
+      <div class="hanging-bulb-node node-4">
+        <div class="hanging-wire"></div><div class="hanging-socket"></div><div class="hanging-lamp"></div>
+      </div>
+      <div class="hanging-bulb-node node-5">
+        <div class="hanging-wire"></div><div class="hanging-socket"></div><div class="hanging-lamp"></div>
+      </div>
+      <div class="hanging-bulb-node node-6">
+        <div class="hanging-wire"></div><div class="hanging-socket"></div><div class="hanging-lamp"></div>
+      </div>
+      <div class="hanging-bulb-node node-7">
+        <div class="hanging-wire"></div><div class="hanging-socket"></div><div class="hanging-lamp"></div>
+      </div>
+    </div>
+
+    <div class="drop-item tapestry-banner-wrapper">
+      <div class="fabric-knot-side knot-left">
+        <div class="knot-ball"></div>
+        <div class="knot-tail"></div>
+      </div>
+      <div class="tapestry-cloth">
+        <span class="tapestry-text">Roopashree</span>
+      </div>
+      <div class="fabric-knot-side knot-right">
+        <div class="knot-ball"></div>
+        <div class="knot-tail"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-dock">
+    <div class="tabletop-arrangement">
+      <div class="table-gift-pair">
+        <div class="drop-item gift-box gift-left-tall">
+          <div class="gift-ribbon-v"></div><div class="gift-ribbon-h"></div>
+        </div>
+        <div class="drop-item gift-box gift-left-square">
+          <div class="gift-ribbon-v"></div><div class="gift-ribbon-h"></div>
+        </div>
+      </div>
+
+      <div class="drop-item cake-container">
+        <div class="candle-group">
+          <div class="candle"><div class="flame"></div></div>
+          <div class="candle"><div class="flame"></div></div>
+        </div>
+        <div class="cake-tier-1"></div>
+        <div class="cake-tier-2"></div>
+      </div>
+
+      <div class="table-gift-pair">
+        <div class="drop-item gift-box gift-right-square">
+          <div class="gift-ribbon-v"></div><div class="gift-ribbon-h"></div>
+        </div>
+        <div class="drop-item gift-box gift-right-tall">
+          <div class="gift-ribbon-v"></div><div class="gift-ribbon-h"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-surface"></div>
+    <div class="table-cloth-trim"></div>
+    <div class="table-legs-viewport">
+      <div class="leg-top"></div>
+      <div class="leg-top"></div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const palette = ['#ff7675', '#55efc4', '#74b9ff', '#ffeaa7', '#a29bfe', '#fd79a8', '#f7b731', '#e84393'];
+
+    // Continuous ambient confetti
+    const fallingConfetti = Array.from({ length: 42 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height - height,
+      size: Math.random() * 6 + 4,
+      color: palette[Math.floor(Math.random() * palette.length)],
+      speedY: Math.random() * 1.4 + 0.8,
+      speedX: (Math.random() - 0.5) * 0.6,
+      angle: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 3
+    }));
+
+    // Soft, slow-drifting popper particles
+    const burstConfetti = [];
+
+    function firePartyPoppers() {
+      const count = 75;
+
+      // Left Popper
+      for (let i = 0; i < count; i++) {
+        const angle = -Math.PI / 4 + (Math.random() - 0.5) * 0.55;
+        const velocity = Math.random() * 5.8 + 3.8;
+        burstConfetti.push({
+          x: 0,
+          y: height * 0.88,
+          vx: Math.cos(angle) * velocity,
+          vy: Math.sin(angle) * velocity,
+          size: Math.random() * 6.5 + 4,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 2.5
+        });
+      }
+
+      // Right Popper
+      for (let i = 0; i < count; i++) {
+        const angle = -3 * Math.PI / 4 + (Math.random() - 0.5) * 0.55;
+        const velocity = Math.random() * 5.8 + 3.8;
+        burstConfetti.push({
+          x: width,
+          y: height * 0.88,
+          vx: Math.cos(angle) * velocity,
+          vy: Math.sin(angle) * velocity,
+          size: Math.random() * 6.5 + 4,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 2.5
+        });
+      }
+    }
+
+    // Party popper blast 1s after table settles (6s + 1s = 7s)
+    setTimeout(firePartyPoppers, 7000);
+
+    // Interactive Tap Burst
+    window.addEventListener('pointerdown', (e) => {
+      for (let i = 0; i < 18; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 3.5 + 1.5;
+        burstConfetti.push({
+          x: e.clientX,
+          y: e.clientY,
+          vx: Math.cos(angle) * velocity,
+          vy: Math.sin(angle) * velocity - 1.5,
+          size: Math.random() * 5 + 3,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 4
+        });
+      }
+    });
+
+    function loop() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Ambient Falling Confetti
+      fallingConfetti.forEach(p => {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.angle += p.rotSpeed;
+        if (p.y > height) {
+          p.y = -10;
+          p.x = Math.random() * width;
+        }
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.angle * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+      });
+
+      // Drifting Popper Confetti
+      for (let i = burstConfetti.length - 1; i >= 0; i--) {
+        const b = burstConfetti[i];
+        b.x += b.vx;
+        b.y += b.vy;
+        b.vy += 0.055;
+        b.vx *= 0.985;
+        b.rotation += b.rotSpeed;
+
+        ctx.save();
+        ctx.translate(b.x, b.y);
+        ctx.rotate((b.rotation * Math.PI) / 180);
+        ctx.fillStyle = b.color;
+        ctx.fillRect(-b.size / 2, -b.size / 2, b.size, b.size * 0.6);
+        ctx.restore();
+
+        if (b.y > height + 25) {
+          burstConfetti.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
